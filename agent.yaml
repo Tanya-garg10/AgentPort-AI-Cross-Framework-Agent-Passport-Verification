@@ -4,26 +4,35 @@ version: "1.0.0"
 description: Portable AI agent with verifiable identity, tools and behavior contracts
 author: "AgentPort Working Group <spec@agentport.org>"
 license: "Apache-2.0"
-repository: "https://github.com/agentport/agent-port"
 
 tools:
-  - tools/risk_check.json
-  - tools/approval_request.json
-  - tools/audit_log.json
-  - tools/agent_status.json
+  - risk-check
+  - approval-request
+  - audit-log
+  - agent-status
 
 skills:
-  - skills/security-review
-  - skills/risk-analysis
-  - skills/audit-report
-
-roles:
-  maker: "Proposes actions, policy drafts, and tool invocations"
-  checker: "Reviews proposed actions and ensures policy compliance"
-  executor: "Executes approved actions with cryptographic verification"
-  auditor: "Records and verifies all execution telemetry and evidence"
+  - security-review
+  - risk-analysis
+  - audit-report
 
 compliance:
-  separation_of_duties: true
-  explainability_spec: "v1.0"
-  evidence_logging: "mandatory"
+  risk_tier: high
+  supervision:
+    human_in_the_loop: always
+  recordkeeping:
+    audit_logging: true
+    retention_period: "7y"
+  segregation_of_duties:
+    roles:
+      - id: maker
+        permissions: [propose, draft]
+      - id: checker
+        permissions: [review, approve, reject]
+      - id: executor
+        permissions: [execute]
+      - id: auditor
+        permissions: [audit, verify]
+    conflicts:
+      - [maker, checker]
+    enforcement: strict

@@ -1,0 +1,31 @@
+name: approval-request
+description: Submits a formal approval request for high-risk operations to the independent Checker role, enforcing Separation of Duties.
+input_schema:
+  type: object
+  properties:
+    proposal_id:
+      type: string
+      description: Unique identifier for the action proposal
+    action_summary:
+      type: string
+      description: Summary of the requested action
+    risk_score:
+      type: number
+      description: Computed risk score from risk_check
+    justification:
+      type: string
+      description: Business or operational justification
+  required: [proposal_id, action_summary, risk_score, justification]
+output_schema:
+  type: object
+  properties:
+    approval_id:
+      type: string
+    status:
+      type: string
+      enum: [PENDING, APPROVED, REJECTED]
+    checker_id:
+      type: string
+    clearance_token:
+      type: string
+  required: [approval_id, status]

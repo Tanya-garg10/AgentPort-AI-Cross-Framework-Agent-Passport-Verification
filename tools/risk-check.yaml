@@ -1,0 +1,38 @@
+name: risk-check
+description: Evaluates the security and operational risk tier of a proposed action or tool invocation against OpenGAP compliance standards.
+input_schema:
+  type: object
+  properties:
+    action_type:
+      type: string
+      enum: [read, write, execute, export, admin]
+      description: Category of action being assessed
+    target_resource:
+      type: string
+      description: Resource or endpoint targeted by the action
+    payload:
+      type: object
+      description: Associated payload or command parameters
+    requesting_role:
+      type: string
+      enum: [maker, checker, executor, auditor]
+      description: Role requesting the operation
+  required: [action_type, target_resource, requesting_role]
+output_schema:
+  type: object
+  properties:
+    risk_level:
+      type: string
+      enum: [LOW, MEDIUM, HIGH, CRITICAL]
+    verdict:
+      type: string
+      enum: [ALLOW, REQUIRE_APPROVAL, BLOCK]
+    risk_score:
+      type: number
+      minimum: 0
+      maximum: 100
+    policy_references:
+      type: array
+      items:
+        type: string
+  required: [risk_level, verdict, risk_score]
