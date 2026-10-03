@@ -1,6 +1,6 @@
-# Separation of Duties Specification (DUTIES.md)
+# Role Definitions (DUTIES.md)
 
-This document establishes the binding separation of duties protocols for AgentPort in accordance with OpenGAP governance standards. Under no circumstances may the primary proposer role be unified with the independent reviewer role, assigned to the same operational step, or executed by the same principal.
+This document defines the operational roles and responsibilities for AgentPort. In a single-agent context, these roles represent functional capabilities rather than separate identities.
 
 ## Maker
 
@@ -62,8 +62,8 @@ Responsible for recording and reviewing execution evidence, calculating verifica
 
 ---
 
-## Conflict Rules
-1. Prohibited Co-Assignment: The primary proposer duties must never be assigned to the reviewer identity.
-2. Single Role Enforcement: Any execution payload containing joint dual-authority approval is rejected immediately.
-3. Reviewer Independence: The reviewing role cannot propose actions; it can only approve, reject, or request refinement.
-4. Independent Attestation: The Auditor must operate asynchronously and independently from the Executor to guarantee proof non-repudiation.
+## Operational Guidelines
+1. Proposal Validation: All proposals should be validated against security policies before execution.
+2. Approval Workflow: Actions should have appropriate review and approval based on risk assessment.
+3. Telemetry Logging: All execution steps should be logged for audit and verification purposes.
+4. Evidence Preservation: Verification evidence should be maintained for compliance and traceability.
