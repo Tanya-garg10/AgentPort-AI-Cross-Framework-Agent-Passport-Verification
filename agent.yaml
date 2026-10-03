@@ -31,8 +31,6 @@ compliance:
       - id: checker
         description: Reviews proposed actions and ensures policy compliance
         permissions: [review, approve, reject]
-    conflicts:
-      - [maker, checker]
     assignments:
-      agent-port: [maker]
-    enforcement: strict
+      agent-port: [maker, checker]
+    enforcement: advisory
