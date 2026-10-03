@@ -1,0 +1,46 @@
+{
+  "name": "audit_log",
+  "description": "Appends an immutable, cryptographically hashed evidence entry to the Auditor verification stream.",
+  "permission_level": "auditor",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "event_type": {
+        "type": "string",
+        "enum": ["VERIFICATION_RUN", "EXPORT_GENERATED", "APPROVAL_GRANTED", "APPROVAL_DENIED", "VIOLATION_BLOCKED"],
+        "description": "Category of the audit event"
+      },
+      "actor_role": {
+        "type": "string",
+        "enum": ["maker", "checker", "executor", "auditor"]
+      },
+      "details": {
+        "type": "object",
+        "description": "Contextual event payload and execution outcome"
+      },
+      "checksum": {
+        "type": "string",
+        "description": "SHA-256 integrity hash of prior event"
+      }
+    },
+    "required": ["event_type", "actor_role", "details"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "log_id": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "tamper_proof_hash": {
+        "type": "string"
+      },
+      "stored": {
+        "type": "boolean"
+      }
+    },
+    "required": ["log_id", "timestamp", "tamper_proof_hash", "stored"]
+  }
+}

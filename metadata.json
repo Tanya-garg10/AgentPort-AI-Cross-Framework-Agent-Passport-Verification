@@ -1,0 +1,6 @@
+{
+  "name": "AgentPort AI — Portable Agent Identity & Verification",
+  "description": "Define once. Export anywhere. Verify what survives. OpenGAP-compatible AI Agent Passport system with deterministic verification and framework adapters for OpenAI, CrewAI, Claude Code, and Lyzr.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
