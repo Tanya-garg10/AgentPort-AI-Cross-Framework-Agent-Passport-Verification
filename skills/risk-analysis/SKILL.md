@@ -1,8 +1,9 @@
 ---
 name: risk-analysis
 description: Deterministic risk scoring and impact modeling for autonomous agent tool invocations
-version: 1.0.0
-category: compliance
+metadata:
+  version: "1.0.0"
+  category: compliance
 ---
 
 # Risk Analysis Skill

@@ -1,8 +1,9 @@
 ---
 name: audit-report
 description: Automated synthesis of tamper-evident verification evidence reports and framework visa certificates
-version: 1.0.0
-category: governance
+metadata:
+  version: "1.0.0"
+  category: governance
 ---
 
 # Audit Report Skill

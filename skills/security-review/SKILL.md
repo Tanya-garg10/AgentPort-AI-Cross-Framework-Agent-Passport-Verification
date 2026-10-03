@@ -1,8 +1,9 @@
 ---
 name: security-review
 description: Comprehensive security policy inspection and role segregation validator for OpenGAP agents
-version: 1.0.0
-category: security
+metadata:
+  version: "1.0.0"
+  category: security
 ---
 
 # Security Review Skill
