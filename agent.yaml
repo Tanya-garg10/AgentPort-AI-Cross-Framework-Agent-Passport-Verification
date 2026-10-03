@@ -26,12 +26,16 @@ compliance:
   segregation_of_duties:
     roles:
       - id: maker
+        description: Proposes actions, policy drafts, and tool invocations
         permissions: [propose, draft]
       - id: checker
+        description: Reviews proposed actions and ensures policy compliance
         permissions: [review, approve, reject]
       - id: executor
+        description: Executes approved actions with cryptographic verification
         permissions: [execute]
       - id: auditor
+        description: Records and verifies all execution telemetry and evidence
         permissions: [audit, verify]
     conflicts:
       - [maker, checker]
