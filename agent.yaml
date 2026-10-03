@@ -27,16 +27,16 @@ compliance:
     roles:
       - id: maker
         description: Proposes actions, policy drafts, and tool invocations
-        permissions: [propose, draft]
+        permissions: [create, submit]
       - id: checker
         description: Reviews proposed actions and ensures policy compliance
         permissions: [review, approve, reject]
       - id: executor
         description: Executes approved actions with cryptographic verification
-        permissions: [execute]
+        permissions: [read]
       - id: auditor
         description: Records and verifies all execution telemetry and evidence
-        permissions: [audit, verify]
+        permissions: [read]
     conflicts:
       - [maker, checker]
     enforcement: strict
