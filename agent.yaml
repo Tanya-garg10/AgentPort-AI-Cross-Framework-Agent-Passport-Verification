@@ -23,14 +23,3 @@ compliance:
   recordkeeping:
     audit_logging: true
     retention_period: "7y"
-  segregation_of_duties:
-    roles:
-      - id: maker
-        description: Proposes actions, policy drafts, and tool invocations
-        permissions: [create, submit]
-      - id: checker
-        description: Reviews proposed actions and ensures policy compliance
-        permissions: [review, approve, reject]
-    assignments:
-      agent-port: [maker, checker]
-    enforcement: advisory
